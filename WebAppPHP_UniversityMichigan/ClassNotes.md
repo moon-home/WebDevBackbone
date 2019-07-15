@@ -34,4 +34,10 @@ Type the folloing on terminal of Linux based systems (non-Windows basically):
 <img src="./imgs/request_response_code.png" width="1000">
 
 Topics to learn in this class:
+
 <img src="./imgs/topics.png" width="600">
+
+where http and sql lay:
+<img src="./imgs/http_sql.png" width="1000">
+
+
