@@ -40,7 +40,8 @@ Topics to learn in this class:
 Type the folloing on terminal of Linux based systems (non-Windows basically):
 <img src="./imgs/request_response_code.png" width="1000">
 
-The above is automatically done in browser. You can find the content in developer tool:
+The above is automatically done in browser. 
+You can find the content in developer tool (Network-file-header):
 <img src="./imgs/headerbody_in_developertool.png" width="1000">
 
 
