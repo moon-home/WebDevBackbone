@@ -20,8 +20,6 @@ Tim Berners-Lee and Robert CailliauT: invented http when they invented www
 
 Tim Berners-Lee: invented URL (protocol+host+document+parameters).
 
-Anchor tag &lt;a href=&quot;nooooo&quot;>idk&lt;a> is for hypertext referece 
-
 Internet Engineering Task Force (IETF): Internet Standards (are called RFCs)
 
 Important concepts
@@ -54,6 +52,29 @@ HTML syntax
 * attributes: double quotes
 * comments: \<!--this comment also works in markdown, have to escape it(　・ˍ・), this can go multiple lines-->
 * [html entities](https://www.w3schools.com/html/html_entities.asp)
+
+
+* Anchor tag &lt;a href=&quot;nooooo&quot;>idk&lt;a> is for hypertext referece 
+* \<li>\<p> item 1\</p>\</li>
+* \<table>
+
+    \<tr>
+
+      \<th>
+
+      \</th>
+
+    \</tr>
+
+    \<tr>
+
+      \<td>
+
+      \</td>
+
+    \</tr>
+
+  \</table>
 
 No html, no search engine
 
