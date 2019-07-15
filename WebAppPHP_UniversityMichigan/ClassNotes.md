@@ -94,8 +94,6 @@ Example of week 2 hw
 ---
 <img src="./imgs/week2hw.png" width="200">
 
-Cascading Style
----
 Language types:
 
 * ***Imperative***:
@@ -124,3 +122,12 @@ Language types:
         `var results = collection.Where( num => num % 2 != 0);`
         
     * sub-paradigms: **functional**, **logic** 
+    
+    
+Cascading Style (CSS)
+---
+3 ways to apply CSS to HTML:
+
+* inline - style = attribute in HTML tag
+* embedded - in the /<head> of the document
+* external - in a separate file
