@@ -20,7 +20,7 @@ Tim Berners-Lee and Robert CailliauT: invented http when they invented www
 
 Tim Berners-Lee: invented URL (protocol+host+document+parameters).
 
-Anchor tag ~= hypertext referece
+Anchor tag &lt;a href=&quot;nooooo&quot;>idk&lt;a> is for hypertext referece 
 
 Internet Engineering Task Force (IETF): Internet Standards (are called RFCs)
 
@@ -48,10 +48,14 @@ Type the folloing on terminal of Linux based systems (non-Windows basically):
 The above is automatically done by browser. You can find it in developer tool (Network-File-Headers):
 <img src="./imgs/headerbody_in_developertool.png" width="1000">
 
-HTML sytax
+HTML syntax
 ----
 * all tags: small letter, start and end pair
 * attributes: double quotes
+* comments: \<!--this comment also works in markdown, have to escape it(　・ˍ・), this can go multiple lines-->
+* [html entities](https://www.w3schools.com/html/html_entities.asp)
+
+No html, no search engine
 
 Structure of HTML document:
 
