@@ -60,17 +60,13 @@ HTML syntax
 
     \<tr>
 
-      \<th>
-
-      \</th>
+      <th> header 1</th>
 
     \</tr>
 
     \<tr>
 
-      \<td>
-
-      \</td>
+      <td>data 1 </td>
 
     \</tr>
 
