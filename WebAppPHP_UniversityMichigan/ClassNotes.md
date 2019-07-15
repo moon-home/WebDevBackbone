@@ -12,6 +12,8 @@ John Resig: started jQuery
 
 Douglas Crockford: "discovered" JSON
 
+tim Berners-Lee and Robert CailliauT: invented http when they invented www
+
 History of programming languages: 
 <img src="./imgs/history_of_programming_languages.png" width="1000">
 
