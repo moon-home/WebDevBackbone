@@ -45,9 +45,7 @@ Topics to learn in this class:
 Type the folloing on terminal of Linux based systems (non-Windows basically):
 <img src="./imgs/request_response_code.png" width="1000">
 
-The above is automatically done in browser. 
-
-You can it in developer tool (Network-file-header):
+The above is automatically done by browser. You can find it in developer tool (Network-File-Headers):
 <img src="./imgs/headerbody_in_developertool.png" width="1000">
 
 HTML sytax
@@ -59,4 +57,8 @@ Structure of HTML document:
 
 <img src="./imgs/topics.png" width="600">
 
+HTML feature
+----
+content is wrapped dynamically:
+<img src="./imgs/html_rewrap.png" width="1000">
 
