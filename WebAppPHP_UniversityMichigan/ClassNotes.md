@@ -1,4 +1,4 @@
-This course is taught by [Charles Severance](https://en.wikipedia.org/wiki/Charles_Severance) on Coursera. He also teaches on Lynda/LinkedIn for a variety of topics. I enjoy his classes. 
+This course is taught by [Charles Severance](https://en.wikipedia.org/wiki/Charles_Severance) on Coursera. He also teaches several topics on Lynda/LinkedIn. I enjoy his classes. 
 
 #### 2019-07-15
 
@@ -83,3 +83,44 @@ HTML feature
 content is wrapped dynamically:
 <img src="./imgs/html_rewrap.png" width="1000">
 
+difference between HTML and DOM:
+
+* DOM is read by browser from HTML
+* DOM can fix some syntax mistakes in HTML file)
+* you can change DOM in developer tool without changing the HTML source code 
+<img src="./imgs/html_rewrap.png" width="1000">
+
+Example of week 2 hw
+---
+<img src="./imgs/week2hw.png" width="200">
+
+Cascading Style
+---
+Language types:
+
+* ***Imperative***:
+
+    * tell the compiler step by step
+
+    * ex. C, LINQ:
+    
+        ```
+        List<int> results = new List<int>();
+        foreach(var num in collection)
+        {
+            if (num % 2 != 0)
+                  results.Add(num);
+        }
+        ```
+        
+    * sub-paradigms: **procedural**, **object-oriented**
+        
+* ***Declarative***:
+
+    * tell the result you want
+
+    * e.x. SQL, regular expression, HTML, CSS:
+    
+        `var results = collection.Where( num => num % 2 != 0);`
+        
+    * sub-paradigms: **functional**, **logic** 
