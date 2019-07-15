@@ -1,3 +1,5 @@
+This is a classes taught by [Charles Severance](https://en.wikipedia.org/wiki/Charles_Severance) on Couesera. He also teaches on Lynda/LinkedIn for a variety of topics. I enjoy his classes. 
+
 #### 2019-07-15
 
 Brian Behlendorf: founded Apache
