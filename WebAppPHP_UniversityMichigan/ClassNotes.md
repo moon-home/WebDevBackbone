@@ -29,3 +29,6 @@ Where HTTP lies:
 
 Response cycle: 
 <img src="./imgs/response_cycle.png" width="1000">
+
+Type the folloing on terminal of Linux based systems (non-Windows basically):
+<img src="./imgs/request_response_code.png" width="1000">
