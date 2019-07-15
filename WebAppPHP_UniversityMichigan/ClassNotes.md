@@ -2,6 +2,8 @@ This course is taught by [Charles Severance](https://en.wikipedia.org/wiki/Charl
 
 #### 2019-07-15
 
+Important people:
+---
 Brian Behlendorf: founded Apache
 
 Rasmus Lerdorf: invented PHP
@@ -22,6 +24,8 @@ Anchor tag ~= hypertext referece
 
 Internet Engineering Task Force (IETF): Internet Standards (are called RFCs)
 
+Important concepts
+---
 History of programming languages: 
 <img src="./imgs/history_of_programming_languages.png" width="1000">
 
@@ -35,15 +39,24 @@ Response cycle:
 <img src="./imgs/response_cycle.png" width="1000">
 
 Topics to learn in this class:
+
 <img src="./imgs/topics.png" width="600">
 
 Type the folloing on terminal of Linux based systems (non-Windows basically):
 <img src="./imgs/request_response_code.png" width="1000">
 
 The above is automatically done in browser. 
-You can find the content in developer tool (Network-file-header):
+
+You can it in developer tool (Network-file-header):
 <img src="./imgs/headerbody_in_developertool.png" width="1000">
 
+HTML sytax
+----
+* all tags: small letter, start and end pair
+* attributes: double quotes
 
+Structure of HTML document:
+
+<img src="./imgs/topics.png" width="600">
 
 
