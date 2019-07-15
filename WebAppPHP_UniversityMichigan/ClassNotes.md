@@ -12,4 +12,8 @@ John Resig: started jQuery
 
 Douglas Crockford: "discovered" JSON
 
+History of programming languages: 
 <img src="./imgs/history_of_programming_languages.png" width="1000">
+
+Where HTTP lies: 
+<img src="./imgs/http.png" width="1000">
