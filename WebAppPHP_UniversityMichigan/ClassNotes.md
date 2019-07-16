@@ -313,4 +313,31 @@ it gives:
 Key=name Val=Chuck
 Key=course Val=SI664
 ```
+arrays of array:
+```
+$products = array(
+  'paper' => array(
+                   'copier' => "Copier & Multipurpose",
+                   'laser' => "Laser Printer",
+                   ),
+   'pen' => array(
+                   'ball' => "Ball Point",
+                   'marker' => "Markers",
+                   )
+);
+echo $["pen"]["marker"];
+//Markers
+```
 
+Array functions
+---
+`array_key_exists($key, $ar)`
+`isset($ar['key'])`
+`count($ar)`
+`is_array($ar)`
+`sort($ar)`
+`ksort($ar)`
+`asort($ar)`
+`explode()`
+PHP is not object-oriented, many functions are named with undercore of same pre-strings.
+ 
