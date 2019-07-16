@@ -341,3 +341,5 @@ Array functions
 `explode()`
 PHP is not object-oriented, many functions are named with undercore of same pre-strings.
  
+$\_GET() is a superglobal, it stores the parameters passed from browser, e.g. from URL `?x=1` automatically. Browser did this for us.
+
