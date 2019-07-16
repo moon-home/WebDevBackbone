@@ -56,22 +56,16 @@ HTML syntax
 
 * Anchor tag &lt;a href=&quot;nooooo&quot;>idk&lt;a> is for hypertext referece 
 * \<li>\<p> item 1\</p>\</li>
-* \<table>
-
-    \<tr>
-
+* ```
+  <table>
+    <tr>
       <th> header 1</th>
-
-    \</tr>
-
-    \<tr>
-
-      <td>data 1 </td>
-
-    \</tr>
-
-  \</table>
-
+    </tr>
+    <tr>
+      <td>data 1</td>
+    </tr>
+  </table>
+  ```
 No html, no search engine
 
 Structure of HTML document:
@@ -131,3 +125,8 @@ Cascading Style (CSS)
 * inline - style = attribute in HTML tag
 * embedded - in the /<head> of the document
 * external - in a separate file
+    
+    
+ Most HTML tags have default settings, but `<span>` and `<div>` are the few tags that do not have default setting. `</span><span>` is an inline tag. It does not do anything unless you add `style=""`.  `</div><div>` is an block tag.   
+  
+ `#` for class, `.` for ID.  
