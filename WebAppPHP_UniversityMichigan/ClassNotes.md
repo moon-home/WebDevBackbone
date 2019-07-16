@@ -158,3 +158,159 @@ My answer to week3 homework:
 ---
 <img src="./imgs/week3hw1.png" width="500">
 
+#### 2019-07-16
+
+PHP Syntax
+---
+How HTML and PHP work together:
+<img src="./imgs/html_php.png" width="800">
+PHP can be right in the middle of the line of HTML
+
+In PHP, variable names are case sensitive, but user defined function names are case-insensitive
+
+all PHP variables have to start with `$` sign. This `$` extends in string for single quotes. `.` is used for string concatenation instead of `+`.
+
+`\n` newline does not work in single quote. PHP supports multilines string, example below will be added `\n` automatically:
+```
+echo "this is a piece of shit!
+oh, you think so too?
+you are not listening!
+```
+
+There are 3 comment signs in PHP: `//` as C++ style, `#` as perl and shell style, `/*  */` as C style
+
+Below `$x++` operates as a "side effect":
+```
+$x = 12;
+$y = 15 + $x++;
+echo "x is $x and y is $y";
+```
+will print out "x is 13 and y is 27"
+
+Ternary Operators in PHP
+---
+The ternary operator comes from C. It's like a one-line if-then-else.
+
+example:
+```
+$www = 123
+$msg = ($www % 2) ? "Odd": "Even";
+echo "Third: $msg \m";
+```
+This prints out "Third: Odd"
+
+Casting
+---
+PHP is very aggresice on castng
+
+`$f = "sam" + 25;`      string part nlow up, it will print out "25"
+
+`$e = (int) 9.9 - 1`    will print out "E: 8"
+
+`$c = 56/12`            will give you 4.666
+
+`echo "A".FALSE."B\n"`  will print out "AB", FALSE doesn't print out well
+
+`echo "X".TRUE."Y\n"`   will print out "X1Y"
+
+`123 == "123"`          true
+
+`123 == "100" + 23`     true
+
+`FALSE == "0"`          true
+
+`(5<6) == "2" - "1"`    true
+
+`(5<6) === TRUE`        true
+
+`(5<6) === 1`        false,  you can use `===` to make it less aggresive
+
+if `strpos` find the string at postion 0, the returned 0 will be evalueated as FALSE. This means even the string is found, the return is false. You have to use `===` here to avoid this.
+<img src="./imgs/strpos.png" width="800">
+
+`$a == $b`
+
+Equal true: if $a is equal to $b, after type juggling.
+
+`$a === $b`
+
+Identical true: if $a is equal to $b, and they are of the same typ
+
+```
+$values = array(0, 0.0, false, '');
+var_dump($values);
+print_r ($values);
+```
+`var_dump` prints out a detailed dump of a variable, including its type and the type of any sub-items (if it's an array or an object). `print_r` prints a variable in a more human-readable form: strings are not quoted, type information is omitted, array sizes aren't given, etc. The above code will give:
+
+```
+
+print and echo are more or less the same; they are both language constructs that display strings. The differences are subtle: print has a return value of 1 so it can be used in expressions whereas echo has a void return type; echo can take multiple parameters, although such usage is rare; echo is slightly faster than print. (Personally, I always use echo, never print.)
+
+var_dump prints out a detailed dump of a variable, including its type and the type of any sub-items (if it's an array or an object). print_r prints a variable in a more human-readable form: strings are not quoted, type information is omitted, array sizes aren't given, etc.
+
+var_dump is usually more useful than print_r when debugging, in my experience. It's particularly useful when you don't know exactly what values/types you have in your variables. Consider this test program:
+
+$values = array(0, 0.0, false, '');
+
+var_dump($values);
+print_r ($values);
+With print_r you can't tell the difference between 0 and 0.0, or false and '':
+
+array(4) {
+  [0]=>
+  int(0)
+  [1]=>
+  float(0)
+  [2]=>
+  bool(false)
+  [3]=>
+  string(0) ""
+}
+
+Array
+(
+    [0] => 0
+    [1] => 0
+    [2] => 
+    [3] => 
+)
+```
+
+With `print_r` you can't tell the difference between `0` and `0.0`, or `false` and `''`:
+
+My answer to week5 hw:
+---
+<img src="./imgs/week5hw1.png" width="300">
+
+Array
+---
+```
+$va = array();
+$va[] = "Hello";
+$va[] = "World";
+print_r($va);
+```
+you get:
+```
+Array(
+[0] => Hello
+[1] => World
+)
+```
+Looping throug an array:
+```
+<?php
+  $stuff = array("name" => "Chuck"),
+                 "course" => "SI664");
+  foreach($stuff as $k => $v) {
+    echo "Key=", $k, "Val=", $v, "\n";
+  }
+?>   
+```
+it gives:
+```
+Key=name Val=Chuck
+Key=course Val=SI664
+```
+
