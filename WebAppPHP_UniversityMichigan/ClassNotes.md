@@ -1,4 +1,4 @@
-This course is taught by [Charles Severance](https://en.wikipedia.org/wiki/Charles_Severance) on Coursera. He also teaches several topics on Lynda/LinkedIn. I enjoy his classes. 
+This course is taught by [Charles Severance](https://en.wikipedia.org/wiki/Charles_Severance) on Coursera. He also teaches several topics on Lynda/LinkedIn. I love his style. 
 
 #### 2019-07-15
 
@@ -84,9 +84,9 @@ difference between HTML and DOM:
 * you can change DOM in developer tool without changing the HTML source code 
 <img src="./imgs/html_rewrap.png" width="1000">
 
-Example of week 2 hw
+My answer to week2 homework
 ---
-<img src="./imgs/week2hw.png" width="200">
+<img src="./imgs/week2homework.png" width="400">
 
 Language types:
 
@@ -118,15 +118,43 @@ Language types:
     * sub-paradigms: **functional**, **logic** 
     
     
-Cascading Style (CSS)
+Cascading Style Sheet (CSS)
 ---
+Tags act in a cascading way. Since all Document Objects/tags are sitting in the hierarchical model, the attributes defined in higher level tags will be cascaded automatically to the lower level, then the lower level can overwrite these "default" attributes if needed. This default cascading behavior can be used together with `class` and `id` to further customize attributes globally.
+
 3 ways to apply CSS to HTML:
 
-* inline - style = attribute in HTML tag
+* inline - in HTML tag
 * embedded - in the /<head> of the document
 * external - in a separate file
     
-    
- Most HTML tags have default settings, but `<span>` and `<div>` are the few tags that do not have default setting. `</span><span>` is an inline tag. It does not do anything unless you add `style=""`.  `</div><div>` is an block tag.   
+ Most HTML tags have default settings, but `<span>` and `<div>` are the few tags that do not have default setting. `<span></span>` is an inline tag. It does not do anything unless you add `style=""`.  `<div></div>` is an block tag.   
   
- `#` for class, `.` for ID.  
+ `.` for class, `#` for ID. They are attibutes of tags.
+ 
+ `#e2edff` heximal for RGB.
+ 
+ Fallback fonts: every browswer must have `serif`, `sans-serif`, `monospace`, `cursive` and `fantasy`
+ 
+ `z index` defines who is on the top of others. 
+ 
+ CSS Selector
+ ---
+ example:
+ ```
+ <head>
+<style>
+a:hover {
+  background-color: yellow;
+}
+</style>
+</head>
+```
+ CSS Box Model
+ ---
+<img src="./imgs/CSSBoxModel.png" width="500">
+
+My answer to week3 homework:
+---
+<img src="./imgs/week3hw1.png" width="500">
+
