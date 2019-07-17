@@ -111,6 +111,9 @@ CREATE TABLE Users(
   INDEX(email)
 )
 ```
+add AUTO_INCREMENT as primary key to an existing table:
+
+`ALTER TABLE artists ADD artist_id INT PRIMARY KEY AUTO_INCREMENT;`
 
 There are techniques to greatly shorten the scan as long as you create date structures and maintain those structures such as Hashes(primary keys for exact matches) and Trees(sorting and prefetch matches). 
 
@@ -191,6 +194,19 @@ choices:
 * CASCADE: adjust child rows by removing or updating to maintain consistancy
 * SET NULL: set the foreigh ket columns in the child rows to null
 
+Notes from week3 hw
+---
+delete column:
 
+`ALTER TABLE tracks DROP genre_id;`
 
+add foreign key to an existing table:
+
+```
+ALTER TABLE tracks ADD genre_id INT;
+ALTER TABLE users ADD CONSTRAINT fk_genre_id FOREIGN KEY (genre_id) REFERENCES genres(genre_id);
+```
+update value:
+
+`UPDATE tracks SET genre_id = 1 WHERE name = 'Track 7'`
 <img src="./imgs/" width="1000">
