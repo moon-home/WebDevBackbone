@@ -343,3 +343,36 @@ PHP is not object-oriented, many functions are named with undercore of same pre-
  
 $\_GET() is a superglobal, it stores the parameters passed from browser, e.g. from URL `?x=1` automatically. Browser did this for us.
 
+shortcut for HTML getting variables defined in PHP:
+
+`<?= $oldguess ?>` is shortcut for `<?php echo($oldguess); ?>`
+
+but safe way for this is: `<?= htmlentities($oldguess) ?>`
+
+Model View Controller (MVC)
+---
+<img src="./imgs/mvc.png" width="800">
+
+How to set your localhost conneted to the Internet
+---
+`ngrok` and `LocalTunnel` are tools for these, but the latter is less stable, their server can be down sometime. so I used `ngrok`. `ngrok` also has more features if you pay for it. 
+
+Type `ngrok http 80` in Windows command line.
+<img src="./imgs/ngrok.png" width="800">
+
+
+Form
+---
+Form is the section for different types of `input`.
+```
+<form method="POST">
+<label for="nam">User Name</label>
+<input type="text" name="who" id="nam"><br/>
+<label for="id_1723">Password</label>
+<input type="text" name="pass" id="id_1723"><br/>
+<input type="submit" value="Log In">
+<input type="submit" name="cancel" value="Cancel">
+</form>
+
+
+```
