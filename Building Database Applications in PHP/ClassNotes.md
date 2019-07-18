@@ -240,3 +240,23 @@ while ( $row = $stmt=>fetch(PDO::FETCH_ASSOC) ) { // loop through the records
 echo "echo "<pre>\n";
 ?>
 ```
+Insert data using PDO from user:
+---
+<img src='./imgs/insert_data_PDO.png' width='1000'>
+
+This `prepare-execute` pattern is nessary to avoid SQL injection.
+
+Delete data
+---
+deleting data is always through `POST`, not `GET`, because you are not supposed to change anything on a `GET`, because crawlers don't follow `POST`, browsers don't let you double `POST`. 
+
+The general pattern is:
+
+check it is GET or POST 
+
+=> make SQL string with placeholder 
+
+=> prepare SQL string for the connection
+
+=> execute statement to update the database
+
