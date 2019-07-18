@@ -176,7 +176,7 @@ Here `ON` gives us Album.artist_id = Artist.artist_id
 
 example:
 
-`SELECT Track.title. Artist.name, Album.title, Genre.name FROM Track JOIN Genre JOIN Album JOIN Artist ON`
+`SELECT Track.title, Artist.name, Album.title, Genre.name FROM Track JOIN Genre JOIN Album JOIN Artist ON`
 
 `ON` gives us: `Track.genre_id` = `Genre.genre_id` AND `Track.album_id` = `Album.album_id` AND `Album.artist_id` = `Artist.artist_id`
 
