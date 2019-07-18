@@ -204,9 +204,10 @@ add foreign key to an existing table:
 
 ```
 ALTER TABLE tracks ADD genre_id INT;
-ALTER TABLE users ADD CONSTRAINT fk_genre_id FOREIGN KEY (genre_id) REFERENCES genres(genre_id);
+ALTER TABLE tracks ADD CONSTRAINT fk_genre_id FOREIGN KEY (genre_id) REFERENCES genres(genre_id);
 ```
 update value:
 
 `UPDATE tracks SET genre_id = 1 WHERE name = 'Track 7'`
+
 <img src="./imgs/" width="1000">
