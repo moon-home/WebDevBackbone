@@ -65,7 +65,178 @@ The parameters for constructing new object is passed by the method starting with
 
 `public __construct([string $time = "now" [, DateTimeZone $timezone = NULL]])`
 
+Inheritance in PHP
+---
+Instantiation happens between a class and an object, using `new`. Inheritance happens between a class and another class (subclasses), using `extends`. 
 
 
+Scope of class member variables:
+* Public - can be accessed inside the class, in derived classes and outside the class
+* Protected - can be accessed inside the class and in derived classes.
+* Private - can only be accessed inside the class, not visible in derived classes.
+
+But, you can bypass those rules by passing a private variable to a public method. e.g.:
+```
+class MyClass
+{
+  public $pub = 'Public';
+  protected $pro = 'Protected';
+  private $priv = 'Private';
+  
+  function printHello()
+  {
+    echo $this->pub."\n";
+    echo $this->pro."\n";
+    echo $this->priv."\n";
+  }
+  
+  $ obj = new MyClass();
+  echo $obj->pub."\n";  // Works
+  echo $obj->pub."\n";  // Fatal Error
+  echo $obj->pub."\n";  // Fatal Error
+  $obj->printeHello();  // Shows Public, Protected, Private
+```
+An example to test `protected variable`:
+```
+class MyClass2 extends MyClass
+{
+  function printHello()
+  {
+    echo $this->pub."\n";
+    echo $this->pro."\n";
+    echo $this->priv."\n";  // Undefiend
+  }
+  
+  $ obj2 = new MyClass2();
+  echo $obj2->pub."\n";  // Works
+  $obj2->printeHello();  // Shows Public, Protected, Undefiend
+```
+  
+You can define an empty class and put stuffs into it. A class is more used as an array this way:
+```
+$player = new stdClass();
+
+$player->name = "Chuck";
+$player->score = 0;
+$player->score++;
+print_r($player);
+```
+This prints:
+```
+stdClass Object
+(
+  [name] => Chuck
+  [score] => 1
+)
+```
+
+PHP Database Libraries
+---
+PHP Data Objects (PDO) is introduced in PHP5. Charles Severance says it stands for Portable Data Objects.
+
+Where we use PDO:
+
+<img src='./imgs/PHPlib.png' width='1000'>
 
 
+From PHP5, non-OO`mysql_` routines is changed to `mysqli` OO version. PHP5 also introduced whole API for the then new structure PDO. Nowadays PDO is much more popular than `mysqli`. 
+
+Running SQL Queries in PHP
+---
+SQL is very native and easy to use in PHP. You are literally sending SQL strings to database server, then you get a thing called `statement` back from the database server. This statement is passed by the `query` method of the `connection object`.
+
+```
+CREATE DATABASE misc;
+GRANT ALL ON misc.* TO 'fred'@'localhost' INDENTIFIED BY 'zap';
+GRANT ALL ON misc.* TO 'fred'@'127.00.1' INDENTIFIED BY 'zap';
+USE misc;
+```
+This command asks for three rules: the username `fred`, the IP address `localhost` and the password `zap`. This is a way to firewall your database from access coming from outside. Usually the outside world can only talk to PHP server, but not database server. Their request to database server is handled and filtered through PHP server. This way, people can't even get a packet to the database server using VPN. 
+
+A database connection is between PHP software and the database. It is like logging into your database. Use the code below in `pdo.php` to build this connection:
+
+`$pdo = new PDO('mysql:host=localhost;port=8889;dbname=misc', 'fred', 'zap');`
+
+3306 is the default port for xampp/linux/Windows, 8889 for Mac
+
+
+```
+<?php
+echo "<pre>\n";
+$pdo=new PDO('mysql:host = localhost; port8889; dbname=misc', 'fred', 'zap'); // build connection
+$stmt = $pdo->query("SELECT * FROM users"); //get the statement
+while ( $row = $stmt=>fetch(PDO::FETCH_ASSOC) ) { // loop through the records
+  print_r($row);
+}
+echo "echo "<pre>\n";
+?>
+```
+What you get is:
+```
+Array(
+  [user_id] => 1
+  [name] => Chuck
+  [email] => csev@utk.edu
+  [password] => 123
+ )
+ 
+ Array(
+  [user_id] => 2
+  [name] => Glenn
+  [email] => gg@utk.edu
+  [password] => 456
+ )
+ ```
+ This associated array is generated from this table:
+ ```
+ +---------+-------+--------------+----------+
+ | user_id |  name |    email     | password |
+ +---------+-------+--------------+----------+
+ |       1 | Chuck | csev@utk.edu | 123      |
+ |       2 | Glenn | gg@utk.edu   | 123      |
+ +---------+-------+--------------+----------+
+ ```
+ To present this array to user, it needs to be rendered in HTML, so a real code would look like:
+ ```
+ <?php
+echo "<pre>\n";
+$pdo=new PDO('mysql:host = localhost; port8889; dbname=misc', 'fred', 'zap'); // build connection
+$stmt = $pdo->query("SELECT * FROM users"); //get the statement
+while ( $row = $stmt=>fetch(PDO::FETCH_ASSOC) ) { // present the data to user
+    echo "<tr><td>";
+    echo($row['name']);
+    echo("<tr><td>");
+    echo($row['email']);
+    echo("<tr><td>");
+    echo($row['password']);
+    echo("<tr><td>\n");
+ }
+ echo "</table>\n";
+?>
+```
+The user will see this on browser:
+
+<img src='./imgs/html_in_php.png' width='200'>
+
+To avoid repeating the code, we want to put the database connection in a single file and include it in all other files. Convention is called pattern in programming. The is the pattern to use for running SQL in PHP.
+
+ An example of this datanase connection file `pdo.php` :
+```
+<?php
+$pdo=new PDO('mysql:host = localhost; port8889; dbname=misc', 'fred', 'zap');
+$pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION); // to see errors folder for details during production
+?>
+```
+note that the file and the variable do not have to be `pdo`. `ERRMODE_EXCEPTION` is a very talkative error mode.An example of the `thrid.php`:
+```
+<?php
+echo "<pre>\n";
+require_once "pdo.php";
+
+$stmt = $pdo->query("SELECT * FROM users");
+while ( $row = $stmt=>fetch(PDO::FETCH_ASSOC) ) { // loop through the records
+  print_r($row);
+}
+echo "echo "<pre>\n";
+?>
+```
