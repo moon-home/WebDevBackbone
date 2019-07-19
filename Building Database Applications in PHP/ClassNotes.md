@@ -260,3 +260,9 @@ check it is GET or POST
 
 => execute statement to update the database
 
+Cookie
+---
+Cookies are arbitrary pieces of data, usually chosen and first sent by the web server, and stored on the client computer by the web browser. The browser then sends them back to the server with every request, introducing states (memory of previous events) into otherwise stateless HTTP transactions. Without cookies, each retrieval of a web page or component of a web page would be an isolated event, largely unrelated to all other page views made by the user on the website. Unlike `GET` or `POST`, which is gone once your request is finished, `cookie` of same value comes with your request everytime.
+
+[PHP](https://www.php.net/manual/en/features.cookies.php) transparently supports HTTP cookies. Cookies are a mechanism for storing data in the remote browser and thus tracking or identifying return users. You can set cookies using the `setcookie()` or `setrawcookie()` function. Cookies are part of the HTTP header, so `setcookie()` must be called before any output is sent to the browser. This is the same limitation that `header()` has. You can use the `output buffering functions` to delay the script output until you have decided whether or not to set any cookies or send any headers.
+
