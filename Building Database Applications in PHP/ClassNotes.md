@@ -278,4 +278,53 @@ If the user has cookies set, we can use the array $\_SESSION to store data from 
 
 You can find where your `$_SESSION` is stored in `session.save_path` on PHPInfo. An example file name of a session is:`sess_0e3b3cafd33c72eeb74358e4db38cc40`, the string after session is the session ID. 
 
+PHP Sessions Without Cookies
+---
+the cookie is a "browser thing"... not a "tab thing". It is to favor multiple login on the same site on different tabs what in the most of the cases is an advantage.
+
+If the application needs to function within an iframe, or have more than one session active. i.e., multiple tabs to the same site, we cannot use session cookies. PHP has nice support for maintaining a session without a cookie. Below is the code to tell PHP we won't be using cooies for the session:
+
+```
+<?php 
+  init_set('session.use_cookies', '0');
+  init_set('session.use_only_cookies', 0);
+  init_set('session.use_trans_sid', 1);
+  
+  session_start();
+?>
+```
+
+parameter in `setcookie()` indicates how long this cookie can last at most.
+```
+<?php
+if ( ! isset($_COOKIE['zap'])){
+  setcookie('zap', '42', time()+3600); // cookie expire in one hour
+}
+?>
+```
+
+Redirect Response (403)
+---
+If your application has not yet sent any data, it can send a special header as part of the HTTP Response. The redirect header includes a URL that the browser is supposed to forward itself to. It was originally used for website that moved from one UTL to another.
+
+when you click on a web page, it comes into your PHP server. It then sends a very special response called a `redirect` or a `403`. This response goes to your browser but it never gets to the DOM. The browser parse this response and immediately calls another GET request, maybe to the same script or different script.
+
+<img src='./imgs/redirect.png' width='1000'>
+
+HTTP Status Codes: 200 OK, 404 Not Found, **302** Found/Moved, also known as "redirect"
+
+Example code to set this redirect header:
+```
+<?php
+header('Location: http://www.example.com/');
+?>
+```
+PHP does not send header (the model) until you send the first character of the body (the view), PHP accumulates the headers until the view/body/output is sent. This is not the output the user sees, but the output browser sees. This output can be an empty line in your php file. 
+
+POST-Redirect-GET
+---
+If we used `POST` in our PHP, when user refresh the page, the `POST` will be executed again, this is terrible if the user is doing a payment or purchasing something. Or just remember `POST` is always considered as modified data by browser. To avoid this double post, we use `POST-Redirect-GET` pattern. This way we can change to a different PHP file. To keep the information between the different PHP file/ requests, we save data into sessions and obtain data from session. 
+
+**Never generate output on POST**
+
 
