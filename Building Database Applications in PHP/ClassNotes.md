@@ -323,8 +323,13 @@ PHP does not send header (the model) until you send the first character of the b
 
 POST-Redirect-GET
 ---
-If we used `POST` in our PHP, when user refresh the page, the `POST` will be executed again, this is terrible if the user is doing a payment or purchasing something. Or just remember `POST` is always considered as modified data by browser. To avoid this double post, we use `POST-Redirect-GET` pattern. This way we can change to a different PHP file. To keep the information between the different PHP file/ requests, we save data into sessions and obtain data from session. 
+If we used `POST` in our PHP, when user refresh the page, the `POST` will be executed again, this is terrible if the user is doing a payment or purchasing something. Or just remember `POST` is always considered as modified data by browser. To avoid this double post, we use `POST-Redirect-GET` pattern. This way we can change to a different PHP file. To keep the context data between different requests, we save data into sessions and obtain data from session. 
+
+Once we use `header("Location: xxx.php");` to redirect a POST request, even it redirect to the same POST php file, the server will add a `GET` itself. So the new call on the same POST PHP file will fall through `if ( isset($_POST['xxx']) )` condition. 
 
 **Never generate output on POST**
 
-
+If you ever use `POST` in your page, you will always:
+1. put something into the session
+2. do a redirect
+3. return
