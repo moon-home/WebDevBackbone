@@ -270,9 +270,12 @@ Session
 ---
 cookie is used to unlock a session. Sessio is to store data. A session is a tiny file lives on the webserver, but it can extemnds to file in database. The cookie indicate the session ID in use. Server software stores data in the session that ut wants to have from one request to another from the same browser. Shopping cart or login informatin is stored in the session in the server. If you close the browser, this session identifier is gone. 
 
-Use `session_start()` to initialize a PHP session before any output has come out. This means it should be used in the model code not the view code in MVC. 
+Use `session_start()` to initialize a PHP session before any output has come out. This means it should be used in the model code not the view code in MVC. `session_start()` either creates a session or reassociate the old session. You cannot use `$_SESSION` until `session_start()` is called. `$_GET`, `$_POST` and the cookies are set before the first line executes, but `$_SESSION` has to be initialized mannually. 
 
 If the user has cookies set, we can use the array $\_SESSION to store data from one request to the next with a particular browser. `$_SESSION` is persist between request while `$_POST` and `$_GET` are not:
 
 <img src='./imgs/persist_session.png' width='1000'>
+
+You can find where your `$_SESSION` is stored in `session.save_path` on PHPInfo. An example file name of a session is:`sess_0e3b3cafd33c72eeb74358e4db38cc40`, the string after session is the session ID. 
+
 
