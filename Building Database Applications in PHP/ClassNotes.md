@@ -266,3 +266,13 @@ Cookies are arbitrary pieces of data, usually chosen and first sent by the web s
 
 [PHP](https://www.php.net/manual/en/features.cookies.php) transparently supports HTTP cookies. Cookies are a mechanism for storing data in the remote browser and thus tracking or identifying return users. You can set cookies using the `setcookie()` or `setrawcookie()` function. Cookies are part of the HTTP header, so `setcookie()` must be called before any output is sent to the browser. This is the same limitation that `header()` has. You can use the `output buffering functions` to delay the script output until you have decided whether or not to set any cookies or send any headers.
 
+Session
+---
+cookie is used to unlock a session. Sessio is to store data. A session is a tiny file lives on the webserver, but it can extemnds to file in database. The cookie indicate the session ID in use. Server software stores data in the session that ut wants to have from one request to another from the same browser. Shopping cart or login informatin is stored in the session in the server. If you close the browser, this session identifier is gone. 
+
+Use `session_start()` to initialize a PHP session before any output has come out. This means it should be used in the model code not the view code in MVC. 
+
+If the user has cookies set, we can use the array $\_SESSION to store data from one request to the next with a particular browser. `$_SESSION` is persist between request while `$_POST` and `$_GET` are not:
+
+<img src='./imgs/persist_session.png' width='1000'>
+
